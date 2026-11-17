@@ -1,36 +1,151 @@
-# Cómo abrir y compilar un proyecto con Git y Visual Studio Code
+# Usar este repositorio con GitHub y Visual Studio Code
 
-## 1. Instala las herramientas
+Esta guía explica cómo conectar este repositorio con GitHub desde Visual Studio Code (VS Code), descargar cambios, subir tu trabajo y compilar un proyecto.
 
-- Instala [Git](https://git-scm.com/downloads).
-- Instala [Visual Studio Code](https://code.visualstudio.com/).
-- Instala también las herramientas necesarias para el lenguaje del proyecto (por ejemplo, Python, Node.js o .NET).
+> **Git y VS Code tienen funciones distintas:** Git guarda el historial y sincroniza los cambios; VS Code es el editor donde abres y modificas los archivos. Para compilar también necesitas las herramientas del lenguaje del proyecto.
 
-> Visual Studio Code es el editor. Git sirve para descargar y actualizar el código. Para compilar, necesitas las herramientas del lenguaje que use el proyecto.
+## 1. Instalar Git y VS Code
 
-## 2. Descarga el repositorio
+1. Instala [Git](https://git-scm.com/downloads).
+2. Instala [Visual Studio Code](https://code.visualstudio.com/).
+3. Abre una terminal y comprueba que Git esté instalado:
 
-1. En GitHub, abre el repositorio y copia su URL desde el botón **Code**.
-2. En Visual Studio Code, abre la paleta de comandos con **Ctrl + Mayús + P**.
-3. Busca y selecciona **Git: Clone**.
-4. Pega la URL, elige una carpeta y selecciona **Open** cuando termine la descarga.
+   ```bash
+   git --version
+   ```
 
-También puedes abrir la carpeta del repositorio desde **File > Open Folder**.
+   Deberías ver una versión, por ejemplo `git version 2.x.x`.
 
-## 3. Compila el proyecto
+## 2. Conectar VS Code con GitHub y clonar el repositorio
 
-1. En Visual Studio Code, abre **Terminal > New Terminal**.
-2. Revisa las instrucciones del proyecto para encontrar el comando de compilación. Este depende del lenguaje y de los archivos del proyecto.
-3. Ejecuta ese comando en la terminal. Si el proyecto incluye una tarea de compilación configurada, también puedes presionar **Ctrl + Mayús + B** y elegirla.
+1. Abre la página del repositorio en GitHub: [Aron-117/estidistica2](https://github.com/Aron-117/estidistica2).
+2. Pulsa **Code** y copia la dirección HTTPS. Para este repositorio es:
 
-## 4. Actualiza el código
+   ```text
+   https://github.com/Aron-117/estidistica2.git
+   ```
 
-Para descargar cambios nuevos del repositorio, abre la terminal en la carpeta del proyecto y ejecuta:
+3. Abre VS Code y pulsa **Ctrl + Mayús + P** para abrir la paleta de comandos.
+4. Escribe y selecciona **Git: Clone**.
+5. Pega la dirección copiada, selecciona una carpeta en tu computadora y pulsa **Open** cuando termine.
+6. Si VS Code te pide iniciar sesión en GitHub, sigue las instrucciones del navegador. Para clonar un repositorio privado necesitas tener acceso a él.
+
+También puedes clonar desde la terminal:
+
+```bash
+git clone https://github.com/Aron-117/estidistica2.git
+cd estidistica2
+code .
+```
+
+El comando `code .` abre la carpeta actual en VS Code. Si no se reconoce, abre la carpeta con **File > Open Folder**.
+
+## 3. Descargar los cambios más recientes
+
+Antes de empezar a trabajar, abre la terminal integrada con **Terminal > New Terminal** y ejecuta:
 
 ```bash
 git pull
 ```
 
-## Importante para este repositorio
+`git pull` descarga e integra cambios de GitHub. No sube los cambios de tu computadora.
 
-Actualmente este repositorio solo contiene este README; todavía no incluye código ni archivos de proyecto que se puedan compilar. Cuando agregues el proyecto, incluye aquí el comando de compilación específico de su lenguaje.
+## 4. Crear una rama de trabajo
+
+Una rama te permite trabajar en cambios separados. Por ejemplo:
+
+```bash
+git switch -c mi-nueva-rama
+```
+
+Para ver las ramas:
+
+```bash
+git branch
+```
+
+La rama actual aparece con `*`. Para regresar a `main`:
+
+```bash
+git switch main
+```
+
+## 5. Guardar y subir cambios a GitHub
+
+Después de editar archivos:
+
+1. En VS Code, abre **Source Control** desde el icono de ramas en la barra lateral, o usa **Ctrl + Mayús + G**.
+2. Revisa los archivos modificados y pulsa **+** junto a cada uno para prepararlos. También puedes preparar todos los archivos con el **+** de la sección **Changes**.
+3. Escribe un mensaje que describa el cambio, por ejemplo `Agregar instrucciones al README`, y pulsa **Commit**.
+4. Pulsa **Sync Changes** o abre la terminal y ejecuta:
+
+   ```bash
+   git push -u origin mi-nueva-rama
+   ```
+
+   Sustituye `mi-nueva-rama` por el nombre real de tu rama. Para subir cambios a `main`, cámbiate primero a `main` y usa `git push`.
+
+También puedes realizar los pasos de preparación y confirmación desde la terminal:
+
+```bash
+git add README.md
+git commit -m "Agregar instrucciones al README"
+git push
+```
+
+Si es la primera vez que subes una rama, establece su conexión con GitHub con:
+
+```bash
+git push -u origin mi-nueva-rama
+```
+
+> **Importante:** `git push` solo sube confirmaciones (*commits*). Los cambios sin confirmar no se envían a GitHub.
+
+## 6. Compilar o ejecutar el proyecto
+
+El comando depende del lenguaje y de los archivos del proyecto. Abre **Terminal > New Terminal** en VS Code y usa el comando indicado por el proyecto. Ejemplos:
+
+### Python
+
+Si el proyecto tiene un archivo `main.py`, puedes ejecutarlo así:
+
+```bash
+python main.py
+```
+
+En Windows también puede funcionar `py main.py`. Python normalmente ejecuta el programa directamente; no usa un paso de compilación como C++ o C#.
+
+### Node.js
+
+Si el proyecto incluye un archivo `package.json`, instala sus dependencias y revisa sus scripts:
+
+```bash
+npm install
+npm run
+```
+
+Si aparece un script `build`, ejecútalo con:
+
+```bash
+npm run build
+```
+
+### .NET
+
+Desde la carpeta que contiene el archivo `.csproj` o `.sln`, ejecuta:
+
+```bash
+dotnet build
+```
+
+Para ejecutar un proyecto .NET, usa:
+
+```bash
+dotnet run
+```
+
+En VS Code, **Ctrl + Mayús + B** permite ejecutar una tarea de compilación si el proyecto ya tiene una configurada.
+
+## Estado actual de este repositorio
+
+Por ahora, este repositorio contiene el README, pero no incluye archivos fuente ni un proyecto configurado. Por eso todavía no hay un programa que compilar. Cuando agregues el proyecto, identifica su lenguaje y sigue el ejemplo correspondiente; los comandos y requisitos pueden variar.
