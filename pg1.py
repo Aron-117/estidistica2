@@ -433,3 +433,4 @@ class StudyPlannerHandler(BaseHTTPRequestHandler):
 if __name__ == "__main__":
     print(f"Planificador listo en http://{HOST}:{PORT} (Ctrl+C para detener)")
     HTTPServer((HOST, PORT), StudyPlannerHandler).serve_forever()
+    #pueden agreagar mas cosas
