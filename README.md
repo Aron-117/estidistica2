@@ -146,6 +146,18 @@ dotnet run
 
 En VS Code, **Ctrl + Mayús + B** permite ejecutar una tarea de compilación si el proyecto ya tiene una configurada.
 
-## Estado actual de este repositorio
+## Ejecutar los programas Python
 
-Por ahora, este repositorio contiene el README, pero no incluye archivos fuente ni un proyecto configurado. Por eso todavía no hay un programa que compilar. Cuando agregues el proyecto, identifica su lenguaje y sigue el ejemplo correspondiente; los comandos y requisitos pueden variar.
+Este repositorio contiene dos programas:
+
+- `pg1.py`: aplicación de planificación de estudio; ejecútala con `python pg1.py` y abre `http://127.0.0.1:8000`.
+- `est2.py`: procesamiento de una base SPSS. Instala sus dependencias y coloca `EH2025_Persona.sav` junto a `est2.py`:
+
+  ```powershell
+  python -m pip install pandas numpy pyreadstat
+  python est2.py
+  ```
+
+  Si la base está en otra ubicación, indícala con `python est2.py --sav "C:\ruta\EH2025_Persona.sav"`. Los archivos CSV y el informe se guardan junto al script por defecto; puedes elegir otra carpeta con `--output-dir`.
+
+El archivo de datos `.sav` no se incluye en el repositorio. Sin él, `est2.py` muestra un mensaje indicando dónde buscarlo y cómo especificar su ruta.
