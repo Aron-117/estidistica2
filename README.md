@@ -161,3 +161,27 @@ Este repositorio contiene dos programas:
   Si la base está en otra ubicación, indícala con `python est2.py --sav "C:\ruta\EH2025_Persona.sav"`. Los archivos CSV y el informe se guardan junto al script por defecto; puedes elegir otra carpeta con `--output-dir`.
 
 El archivo de datos `.sav` no se incluye en el repositorio. Sin él, `est2.py` muestra un mensaje indicando dónde buscarlo y cómo especificar su ruta.
+
+## Carga de la base de datos
+
+Para ejecutar el programa es necesario contar con el archivo de datos de la encuesta en formato `.sav`, por ejemplo:
+
+```text
+EH2025_Persona.sav
+Si aparece el mensaje:
+No se encontró 'EH2025_Persona.sav'
+Si aparece el mensaje:
+No se encontró 'EH2025_Persona.sav'
+RUTA_SAV = r"C:\Users\TU_USUARIO\Downloads\EH2025_Persona.sav"
+La letra r antes de las comillas permite que Windows interprete correctamente las barras de la ruta.
+
+También es posible copiar el archivo EH2025_Persona.sav a la misma carpeta donde se encuentra el script. En ese caso, se puede mantener:
+RUTA_SAV = "EH2025_Persona.sav"
+Cuando la ruta sea correcta, el programa:
+- Lee y limpia la base de datos.
+- Genera una muestra aleatoria simple.
+- Calcula parámetros de población y estimaciones de la muestra.
+- Construye intervalos de confianza.
+- Compara las zonas urbana y rural.
+- Guarda los resultados en la carpeta resultados_demografia.
+Antes de ejecutar el análisis final, se deben confirmar los nombres de las variables configuradas en COL, especialmente las variables de área, departamento, sexo, edad, estado civil, lugar de nacimiento, embarazo e hijos nacidos vivos.
