@@ -29,7 +29,7 @@ except ImportError as error:
 # -----------------------------------------------------------------------------
 # 0. CONFIGURACION: revisar solo esta seccion antes de ejecutar
 # -----------------------------------------------------------------------------
-RUTA_SAV = "EH2025_Persona.sav"
+RUTA_SAV = Path(__file__).parent / "BD_EH2025_Persona" / "EH2025_Persona.sav"
 CARPETA_SALIDA = "resultados_demografia"
 SEMILLA = 2025
 E = 0.03                         # error maximo para calcular n
