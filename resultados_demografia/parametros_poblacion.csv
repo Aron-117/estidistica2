@@ -1,0 +1,13 @@
+﻿fuente,variable,descripcion,tipo,area,n_validos,estimacion,desviacion_estandar,comparacion,n_urbano,n_rural,casos_si
+poblacion,edad,Edad en anos cumplidos,media,Urbano,30173.0,32.113478938123485,20.680390660528207,,,,
+poblacion,edad,Edad en anos cumplidos,media,Rural,9312.0,33.886920103092784,23.765822051965003,,,,
+poblacion,edad,Edad en anos cumplidos,diferencia_de_medias,,,-1.7734411649692987,,Urbano - Rural,30173.0,9312.0,
+poblacion,hijos,Numero de hijas e hijos nacidos vivos,media,Urbano,178.0,1.348314606741573,1.2853026076059952,,,,
+poblacion,hijos,Numero de hijas e hijos nacidos vivos,media,Rural,47.0,1.8936170212765957,1.772176781754838,,,,
+poblacion,hijos,Numero de hijas e hijos nacidos vivos,diferencia_de_medias,,,-0.5453024145350227,,Urbano - Rural,178.0,47.0,
+poblacion,nacio_lugar,Nacio en este lugar,proporcion,Urbano,30161.0,0.7868770929345844,,,,,23733.0
+poblacion,nacio_lugar,Nacio en este lugar,proporcion,Rural,9303.0,0.7312694829624852,,,,,6803.0
+poblacion,nacio_lugar,Nacio en este lugar,diferencia_de_proporciones,,,0.05560760997209924,,Urbano - Rural,30161.0,9303.0,
+poblacion,vive_union,Vive en union,proporcion,Urbano,24561.0,0.4660640853385448,,,,,11447.0
+poblacion,vive_union,Vive en union,proporcion,Rural,7178.0,0.5767623293396489,,,,,4140.0
+poblacion,vive_union,Vive en union,diferencia_de_proporciones,,,-0.11069824400110406,,Urbano - Rural,24561.0,7178.0,

@@ -1,0 +1,26 @@
+Filas x columnas de la base original: (39485, 276)
+
+CANDIDATOS PARA COL:
+  area: {'area': 'Urbana Rural'}
+  depto: {'depto': 'Departamento', 's01b_11b': 'Especifique el Departamento  dónde vivía hace 5 años (2020)'}
+  sexo: sin coincidencias
+  edad: {'s01a_03': '¿Cuántos años cumplidos tiene?', 's05a_02b': 'Además de los ingresos mencionados, recibe usted ingresos (rentas) mensuales por: B. ¿Alquiler de propiedades inmuebles casas, etc.?', 's05a_03a': 'Durante los últimos doce meses, ¿recibió usted: (en montos anuales) A. Alquileres de propiedades agrícolas?', 's05a_03b': 'Durante los últimos doce meses, ¿recibió usted: (en montos anuales) B. Dividendos, utilidades empresariales o retiros de sociedades?', 's05a_04c': 'Además de los ingresos mencionados anteriormente, durante los últimos doce meses, ¿recibió, usted… C. Ingresos por anticrético de propiedades inmuebles, casas, etc.?', 'pet': 'Poblacion en edad de trabajar 14 o más años'}
+  estciv: {'s01a_10': '¿Cuál es su estado civil o conyugal actual?'}
+  nacio: {'s01b_10a': '¿Dónde nació?'}
+  emb: {'s02b_06': '¿Está o estuvo alguna vez embarazada?', 's02b_06b': '¿Está o estuvo alguna vez embarazada? ¿Cuántas veces? (incluyendo el actual embarazo)', 's02b_11': 'En su último embarazo, ¿se ha inscrito al Bono Juana Azurduy (BJA)?', 's02b_13': 'En su último embarazo, ¿recibió el Subsidio Universal Prenatal por la Vida (Productos con valor de Bs 300)?'}
+  hijos: {'s02b_07': '¿Cuántas hijas e hijos nacidos vivos ha tenido? (aunque después hayan muerto)', 'hnv_ult_a': 'Hijos nacidos vivos en el último año'}
+
+COLUMNAS CONFIGURADAS:
+  [OK] area: 'area', nulos=0, valores=[1.0, 2.0]
+  [OK] depto: 'depto', nulos=0, valores=[1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0]
+       etiquetas: {1.0: 'Chuquisaca', 2.0: 'La Paz', 3.0: 'Cochabamba', 4.0: 'Oruro', 5.0: 'Potosí', 6.0: 'Tarija', 7.0: 'Santa Cruz', 8.0: 'Beni', 9.0: 'Pando'}
+  [OK] sexo: 's01a_02', nulos=0, valores=[1.0, 2.0]
+       etiquetas: {1.0: '1. Hombre', 2.0: '2. Mujer'}
+  [OK] edad: 's01a_03', nulos=0, valores=[0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0]
+  [OK] estciv: 's01a_10', nulos=7,746, valores=[1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+       etiquetas: {1.0: '1. CASADA(O)', 2.0: '2. CONVIVIENTE O CONCUBINA(O)', 3.0: '3. SEPARADA(O)', 4.0: '4. DIVORCIADA(O)', 5.0: '5. VIUDA(O)', 6.0: '6. SOLTERA(O)'}
+  [OK] nacio: 's01b_10a', nulos=21, valores=[1.0, 2.0, 3.0]
+       etiquetas: {1.0: '1. En éste lugar', 2.0: '2. En otro lugar del país', 3.0: '3. En el exterior'}
+  [OK] emb: 's02b_06', nulos=28,108, valores=[1.0, 2.0, 3.0]
+       etiquetas: {1.0: '1. Si, actualmente embarazada', 2.0: '2. Si, estuvo embarazada', 3.0: '3. No'}
+  [OK] hijos: 's02b_07', nulos=33,151, valores=[0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0]
