@@ -29,7 +29,7 @@ except ImportError as error:
 # -----------------------------------------------------------------------------
 # 0. CONFIGURACION: revisar solo esta seccion antes de ejecutar
 # -----------------------------------------------------------------------------
-RUTA_SAV = Path(__file__).parent / "BD_EH2025_Persona" / "EH2025_Persona.sav"
+RUTA_SAV = r"C:\Users\aronc\Downloads\BD_EH2025_Persona\EH2025_Persona.sav"
 CARPETA_SALIDA = "resultados_demografia"
 SEMILLA = 2025
 E = 0.03                         # error maximo para calcular n
@@ -40,14 +40,14 @@ NIVEL_CONFIANZA = 0.95
 
 # Nombres supuestos de la EH2025. Deben coincidir con los candidatos impresos.
 COL = {
-    "area": "area",            # 1 urbano, 2 rural
-    "depto": "depto",          # departamento
-    "sexo": "s1_02",           # S1-P2
-    "edad": "s1_03",           # S1-P3
-    "estciv": "s1_10",         # S1-P10
-    "nacio": "s1_10a",         # S1-P10a
-    "emb": "s2_06",            # S2-P6
-    "hijos": "s2_07",          # S2-P7
+    "area":   "area",
+    "depto":  "depto",
+    "sexo":   "s01a_02",
+    "edad":   "s01a_03",
+    "estciv": "s01a_10",
+    "nacio":  "s01b_10a",
+    "emb":    "s02b_06",
+    "hijos":  "s02b_07",
 }
 COD_URBANO, COD_RURAL = 1, 2
 COD_MUJER = 2
