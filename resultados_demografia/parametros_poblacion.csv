@@ -2,9 +2,9 @@
 poblacion,edad,Edad en anos cumplidos,media,Urbano,30173.0,32.113478938123485,20.680390660528207,,,,
 poblacion,edad,Edad en anos cumplidos,media,Rural,9312.0,33.886920103092784,23.765822051965003,,,,
 poblacion,edad,Edad en anos cumplidos,diferencia_de_medias,,,-1.7734411649692987,,Urbano - Rural,30173.0,9312.0,
-poblacion,hijos,Numero de hijas e hijos nacidos vivos,media,Urbano,178.0,1.348314606741573,1.2853026076059952,,,,
-poblacion,hijos,Numero de hijas e hijos nacidos vivos,media,Rural,47.0,1.8936170212765957,1.772176781754838,,,,
-poblacion,hijos,Numero de hijas e hijos nacidos vivos,diferencia_de_medias,,,-0.5453024145350227,,Urbano - Rural,178.0,47.0,
+poblacion,aestudio,Anios de estudio,media,Urbano,28745.0,9.958984171160202,5.395087247185008,,,,
+poblacion,aestudio,Anios de estudio,media,Rural,8740.0,6.279519450800915,4.718850671811453,,,,
+poblacion,aestudio,Anios de estudio,diferencia_de_medias,,,3.6794647203592863,,Urbano - Rural,28745.0,8740.0,
 poblacion,nacio_lugar,Nacio en este lugar,proporcion,Urbano,30161.0,0.7868770929345844,,,,,23733.0
 poblacion,nacio_lugar,Nacio en este lugar,proporcion,Rural,9303.0,0.7312694829624852,,,,,6803.0
 poblacion,nacio_lugar,Nacio en este lugar,diferencia_de_proporciones,,,0.05560760997209924,,Urbano - Rural,30161.0,9303.0,

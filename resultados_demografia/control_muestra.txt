@@ -3,19 +3,17 @@ Semilla de la muestra MAS = 2025
 
 Casos validos por variable (poblacion | muestra):
   edad              39,485 |   1,040
-  hijos                225 |       5
+  aestudio          37,485 |     990
   nacio_lugar       39,464 |   1,040
   vive_union        31,739 |     836
 
 Casos validos por variable y area en la muestra (urbano / rural):
   edad              799 /    241
-  hijos               4 /      1 <-- REVISAR: menos de 30
+  aestudio          762 /    228
   nacio_lugar       799 /    241
   vive_union        647 /    189
 
-Proporcion urbana: poblacion=0.7642; muestra=0.7683; IC 95 % muestra=(0.7426, 0.7939)
-La proporcion poblacional esta dentro del IC de la muestra: SI
-Hijos fuera de rango descartados en poblacion: 0
 Edad igual a 98 (tope '98 o mas') en poblacion: 5
-Limitacion: hijos depende de la edad y se analiza solo en su universo definido.
+Años de estudio igual a 0 en poblacion: 3,184
+Limitacion: aestudio excluye valores perdidos (NaN) sin imputarlos como cero.
 Limitacion: edad=98 representa '98 o mas', por lo que la media de edad queda acotada.

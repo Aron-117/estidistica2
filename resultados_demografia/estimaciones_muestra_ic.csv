@@ -1,8 +1,8 @@
 ﻿fuente,variable,descripcion,tipo,area,n_validos,estimacion,desviacion_estandar,ic_inferior,ic_superior,casos_si
 muestra,edad,Edad en anos cumplidos,media,Urbano,799,32.34167709637046,21.285378103133308,30.86353812150304,33.81981607123788,
 muestra,edad,Edad en anos cumplidos,media,Rural,241,32.66390041493776,22.907765780553724,29.75708220920892,35.57071862066659,
-muestra,hijos,Numero de hijas e hijos nacidos vivos,media,Urbano,4,1.0,1.1547005383792515,-0.8373862310370785,2.8373862310370788,
-muestra,hijos,Numero de hijas e hijos nacidos vivos,media,Rural,1,1.0,,,,
+muestra,aestudio,Anios de estudio,media,Urbano,762,9.724409448818898,5.417658137074804,9.339132101500335,10.109686796137462,
+muestra,aestudio,Anios de estudio,media,Rural,228,6.885964912280702,4.809606341662384,6.258323157659824,7.51360666690158,
 muestra,nacio_lugar,Nacio en este lugar,proporcion,Urbano,799,0.804755944931164,,0.7772704420058649,0.832241447856463,643.0
 muestra,nacio_lugar,Nacio en este lugar,proporcion,Rural,241,0.6846473029045643,,0.6259822757892167,0.7433123300199119,165.0
 muestra,vive_union,Vive en union,proporcion,Urbano,647,0.4652241112828439,,0.42678963677889037,0.5036585857867975,301.0

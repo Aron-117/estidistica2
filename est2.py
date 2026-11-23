@@ -28,10 +28,11 @@ except ImportError as error:
 RUTA_SAV = r"C:\Users\aronc\Downloads\BD_EH2025_Persona\EH2025_Persona.sav"
 CARPETA_SALIDA = "resultados_demografia"
 SEMILLA = 2025
-E = 0.03                         # --->error maximo para calcular n
-Z = 1.96                         # --->nivel de confianza para proporciones: 95 %
-P = 0.50                         # --->maxima variabilidad cuando p es desconocida
-N_MUESTRA = None                 # --->escribe aqui el n acordado por el grupo
+                 # --->escribe aqui el n acordado por el grupo
+E = 0.03                         # error maximo para calcular n
+Z = 1.96                         # nivel de confianza para proporciones: 95 %
+P = 0.50                         # maxima variabilidad cuando p es desconocida
+N_MUESTRA = 1040                # escribe aqui el n acordado por el grupo
 NIVEL_CONFIANZA = 0.95
 # Nombres supuestos de la EH2025. Deben coincidir con los candidatos impresos.
 COL = {
@@ -39,20 +40,18 @@ COL = {
     "depto":  "depto",
     "sexo":   "s01a_02",
     "edad":   "s01a_03",
-    "estciv": "s01a_10",
-    "nacio":  "s01b_10a",
-    "emb":    "s02b_06",
-    "hijos":  "s02b_07",
+    "aestudio": "aestudio",
+    "estciv":   "s01a_10",
+    "nacio":    "s01b_10a",
 }
 COD_URBANO, COD_RURAL = 1, 2
-COD_MUJER = 2
-COD_EMB_SI = 1
 
-CUANTITATIVAS = ["edad", "hijos"]
+
+CUANTITATIVAS = ["edad", "aestudio"]
 DICOTOMICAS = ["nacio_lugar", "vive_union"]
 NOMBRES = {
     "edad": "Edad en anos cumplidos",
-    "hijos": "Numero de hijas e hijos nacidos vivos",
+    "aestudio": "Anios de estudio",
     "nacio_lugar": "Nacio en este lugar",
     "vive_union": "Vive en union",
 }
@@ -80,10 +79,9 @@ PISTAS = {
     "depto": r"depart",
     "sexo": r"sexo",
     "edad": r"edad|a[ñn]os cumplidos",
+    "aestudio": r"aestudio|a[ñn]os de estudio|instrucci[óo]n",
     "estciv": r"estado civil|casad|conviv",
     "nacio": r"naci[óo] en|lugar de nacimiento|d[óo]nde naci",
-    "emb": r"embaraz",
-    "hijos": r"hij[oa]s.*(vivos|nacidos)|nacidos vivos",
 }
 
 
@@ -130,15 +128,9 @@ def construir_variables(df: pd.DataFrame) -> pd.DataFrame:
     # Edad: 0 significa menor de un ano; 98 es "98 o mas" y se conserva.
     d["edad"] = df[COL["edad"]].where(df[COL["edad"]].between(0, 98))
 
-    # Hijos: solo mujeres de 13--50 que respondieron haber estado embarazadas.
-    universo_hijos = (
-        (df[COL["sexo"]] == COD_MUJER)
-        & df[COL["edad"]].between(13, 50)
-        & (df[COL["emb"]] == COD_EMB_SI)
-    )
-    d["hijos"] = df[COL["hijos"]].where(universo_hijos)
-    d["hijos_raro"] = d["hijos"].notna() & ~d["hijos"].between(0, 20)
-    d.loc[d["hijos_raro"], "hijos"] = np.nan
+    # Anos de estudio: 0 es valido (sin instruccion formal); se excluyen negativos/NaN.
+    aestudio = pd.to_numeric(df[COL["aestudio"]], errors="coerce")
+    d["aestudio"] = aestudio.where(aestudio >= 0)
 
     # Nacio en este lugar: 1 = mismo municipio/ciudad; 0 = otro lugar o exterior.
     nacio = df[COL["nacio"]]
@@ -339,11 +331,9 @@ def control_muestra(poblacion: pd.DataFrame, muestra: pd.DataFrame) -> str:
     li, ls = max(0, m_urb - Z * se), min(1, m_urb + Z * se)
     lineas.extend([
         "",
-        f"Proporcion urbana: poblacion={p_urb:.4f}; muestra={m_urb:.4f}; IC 95 % muestra=({li:.4f}, {ls:.4f})",
-        f"La proporcion poblacional esta dentro del IC de la muestra: {'SI' if li <= p_urb <= ls else 'NO'}",
-        f"Hijos fuera de rango descartados en poblacion: {int(poblacion['hijos_raro'].sum()):,}",
-        f"Edad igual a 98 (tope '98 o mas') en poblacion: {(poblacion['edad'] == 98).sum():,}",
-        "Limitacion: hijos depende de la edad y se analiza solo en su universo definido.",
+       f"Edad igual a 98 (tope '98 o mas') en poblacion: {(poblacion['edad'] == 98).sum():,}",
+        f"Años de estudio igual a 0 en poblacion: {(poblacion['aestudio'] == 0).sum():,}",
+        "Limitacion: aestudio excluye valores perdidos (NaN) sin imputarlos como cero.",
         "Limitacion: edad=98 representa '98 o mas', por lo que la media de edad queda acotada.",
     ])
     return "\n".join(lineas)
