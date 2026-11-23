@@ -24,20 +24,15 @@ try:
     from scipy import stats
 except ImportError as error:
     raise SystemExit("Falta scipy. Instala requisitos con: pip install pandas numpy pyreadstat scipy") from error
-
-
-# -----------------------------------------------------------------------------
-# 0. CONFIGURACION: revisar solo esta seccion antes de ejecutar
-# -----------------------------------------------------------------------------
+#----------------------> 0. CONFIGURACION: revisar solo esta seccion antes de ejecutar
 RUTA_SAV = r"C:\Users\aronc\Downloads\BD_EH2025_Persona\EH2025_Persona.sav"
 CARPETA_SALIDA = "resultados_demografia"
 SEMILLA = 2025
-E = 0.03                         # error maximo para calcular n
-Z = 1.96                         # nivel de confianza para proporciones: 95 %
-P = 0.50                         # maxima variabilidad cuando p es desconocida
-N_MUESTRA = None                 # escribe aqui el n acordado por el grupo
+E = 0.03                         # --->error maximo para calcular n
+Z = 1.96                         # --->nivel de confianza para proporciones: 95 %
+P = 0.50                         # --->maxima variabilidad cuando p es desconocida
+N_MUESTRA = None                 # --->escribe aqui el n acordado por el grupo
 NIVEL_CONFIANZA = 0.95
-
 # Nombres supuestos de la EH2025. Deben coincidir con los candidatos impresos.
 COL = {
     "area":   "area",
@@ -61,11 +56,7 @@ NOMBRES = {
     "nacio_lugar": "Nacio en este lugar",
     "vive_union": "Vive en union",
 }
-
-
-# -----------------------------------------------------------------------------
-# 1. CARGA Y EXPLORACION
-# -----------------------------------------------------------------------------
+#-------------------> 1. CARGA Y EXPLORACION
 def cargar_sav(ruta: str | Path):
     """Lee codigos numericos, sin sustituirlos por sus etiquetas de texto."""
     import pyreadstat
@@ -127,11 +118,7 @@ def validar_columnas(df: pd.DataFrame) -> None:
     faltan = [columna for columna in COL.values() if columna not in df.columns]
     if faltan:
         raise SystemExit(f"Corrige COL: estas columnas no existen en la base: {faltan}")
-
-
-# -----------------------------------------------------------------------------
-# 2. LIMPIEZA Y DEFINICION DE UNIVERSOS
-# -----------------------------------------------------------------------------
+# ------------>2. LIMPIEZA Y DEFINICION DE UNIVERSOS
 def construir_variables(df: pd.DataFrame) -> pd.DataFrame:
     """Deja NaN fuera de cada universo: el analisis usa solo casos validos."""
     d = pd.DataFrame(index=df.index)
@@ -166,11 +153,7 @@ def construir_variables(df: pd.DataFrame) -> pd.DataFrame:
     )
     d.loc[df[COL["edad"]] < 12, "vive_union"] = np.nan
     return d
-
-
-# -----------------------------------------------------------------------------
-# 3. MUESTRA ALEATORIA SIMPLE
-# -----------------------------------------------------------------------------
+#------------> 3. MUESTRA ALEATORIA SIMPLE
 def tamano_muestra(N: int, e: float = E, z: float = Z, p: float = P) -> int:
     """Formula con correccion por poblacion finita."""
     if N < 2:
@@ -183,11 +166,7 @@ def extraer_mas(d: pd.DataFrame, n: int, semilla: int = SEMILLA) -> pd.DataFrame
     if not 1 <= n <= len(d):
         raise ValueError(f"n debe estar entre 1 y {len(d):,}; se recibio {n:,}.")
     return d.sample(n=n, replace=False, random_state=semilla).copy()
-
-
-# -----------------------------------------------------------------------------
-# 4. ESTADISTICA DESCRIPTIVA E INTERVALOS DE CONFIANZA
-# -----------------------------------------------------------------------------
+#---------------> 4. ESTADISTICA DESCRIPTIVA E INTERVALOS DE CONFIANZA
 def etiqueta_area(codigo) -> str:
     if codigo == COD_URBANO:
         return "Urbano"
@@ -368,11 +347,7 @@ def control_muestra(poblacion: pd.DataFrame, muestra: pd.DataFrame) -> str:
         "Limitacion: edad=98 representa '98 o mas', por lo que la media de edad queda acotada.",
     ])
     return "\n".join(lineas)
-
-
-# -----------------------------------------------------------------------------
-# 6. EJECUCION Y ARCHIVOS DE SALIDA
-# -----------------------------------------------------------------------------
+# ------->6. EJECUCION Y ARCHIVOS DE SALIDA
 def main() -> None:
     ruta = Path(RUTA_SAV)
     if not ruta.exists():
