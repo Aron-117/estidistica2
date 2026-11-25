@@ -13,6 +13,8 @@ Casos validos por variable y area en la muestra (urbano / rural):
   nacio_lugar       799 /    241
   vive_union        647 /    189
 
+Proporcion urbana: poblacion=0.7642; muestra=0.7683; IC 95 % muestra=(0.7426, 0.7939)
+La proporcion poblacional esta dentro del IC de la muestra: SI
 Edad igual a 98 (tope '98 o mas') en poblacion: 5
 Años de estudio igual a 0 en poblacion: 3,184
 Limitacion: aestudio excluye valores perdidos (NaN) sin imputarlos como cero.

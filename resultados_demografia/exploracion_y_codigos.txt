@@ -1,10 +1,10 @@
-Filas x columnas de la base original: (39485, 278)
+Filas x columnas de la base original: (39485, 276)
 
 CANDIDATOS PARA COL:
   area: {'area': 'Urbana Rural'}
   depto: {'depto': 'Departamento', 's01b_11b': 'Especifique el Departamento  dónde vivía hace 5 años (2020)'}
   sexo: sin coincidencias
-  edad: {'s01a_03': '¿Cuántos años cumplidos tiene?', 's05a_02b': 'Además de los ingresos mencionados, recibe usted ingresos (rentas) mensuales por: B. ¿Alquiler de propiedades inmuebles casas, etc.?', 's05a_03a': 'Durante los últimos doce meses, ¿recibió usted: (en montos anuales) A. Alquileres de propiedades agrícolas?', 's05a_03b': 'Durante los últimos doce meses, ¿recibió usted: (en montos anuales) B. Dividendos, utilidades empresariales o retiros de sociedades?', 's05a_04c': 'Además de los ingresos mencionados anteriormente, durante los últimos doce meses, ¿recibió, usted… C. Ingresos por anticrético de propiedades inmuebles, casas, etc.?', 'pet': 'Poblacion en edad de trabajar 14 o más años', 'grupos_edad': 'Grupos de edad', 'grupos': 'Grupos de edad'}
+  edad: {'s01a_03': '¿Cuántos años cumplidos tiene?', 's05a_02b': 'Además de los ingresos mencionados, recibe usted ingresos (rentas) mensuales por: B. ¿Alquiler de propiedades inmuebles casas, etc.?', 's05a_03a': 'Durante los últimos doce meses, ¿recibió usted: (en montos anuales) A. Alquileres de propiedades agrícolas?', 's05a_03b': 'Durante los últimos doce meses, ¿recibió usted: (en montos anuales) B. Dividendos, utilidades empresariales o retiros de sociedades?', 's05a_04c': 'Además de los ingresos mencionados anteriormente, durante los últimos doce meses, ¿recibió, usted… C. Ingresos por anticrético de propiedades inmuebles, casas, etc.?', 'pet': 'Poblacion en edad de trabajar 14 o más años'}
   aestudio: {'s03a_02a': '¿Cuál fue el NIVEL Y CURSO más alto de instrucción que aprobó? Nivel', 's03a_02c': '¿Cuál fue el NIVEL Y CURSO más alto de instrucción que aprobó? Curso', 'educ_prev': 'Años de estudio previos', 'aestudio': 'Años de estudio'}
   estciv: {'s01a_10': '¿Cuál es su estado civil o conyugal actual?'}
   nacio: {'s01b_10a': '¿Dónde nació?'}
